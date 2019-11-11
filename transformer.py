@@ -25,7 +25,7 @@ data_csv=pd.read_csv("diabetes.csv")
 data_csv
 
 #pdf파일
-#pdf파일 불러와서 text파일로 읽어들이기
+ #pdf파일 불러와서 text파일로 읽어들이기
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
