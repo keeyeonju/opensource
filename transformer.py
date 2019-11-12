@@ -24,6 +24,38 @@ class data_file:
 data_csv=pd.read_csv("diabetes.csv")
 data_csv
 
+#json파일 생성하기
+import json
+from collections import OrderedDict
+
+group_data = OrderedDict()
+albums = OrderedDict()
+ 
+group_data["name"] = "여자친구"
+group_data["members"] = ["소원", "예린", "은하", "유주", "신비", "엄지"]
+ 
+albums["EP 1집"] = "Season of Glass"
+albums["EP 2집"] = "Flower Bud"
+albums["EP 3집"] = "Snowflake"
+albums["정규 1집"] = "LOL"
+albums["EP 4집"] = "THE AWAKENING"
+ 
+group_data["albums"] = albums
+
+# Print JSON
+print(json.dumps(group_data, ensure_ascii=False, indent="\t") )
+
+#json파일 저장
+with open('gfriend.json', 'w', encoding="utf-8") as make_file:
+    json.dump(group_data, make_file, ensure_ascii=False, indent="\t")
+
+#json파일 열기
+json_data=open('C:/Users/quftp/Desktop/2019/2학기/오픈소스개론/프로젝트/gfriend.json',encoding='UTF8').read()
+
+data=json.loads(json_data)
+print(data)
+
+
 #pdf파일
  #pdf파일 불러와서 text파일로 읽어들이기
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
