@@ -20,10 +20,12 @@ class data_file:
         #f.close()
 
 
-#csv파일
+#---CSV 파일---
 data_csv=pd.read_csv("diabetes.csv")
 data_csv
 
+
+#---JSON 파일----
 #json파일 생성하기
 import json
 from collections import OrderedDict
@@ -56,7 +58,27 @@ data=json.loads(json_data)
 print(data)
 
 
-#pdf파일
+#---XML 파일---
+# xml파일 파싱
+from xml.etree.ElementTree import parse
+
+tree = parse('test.xml') #xml파일 가져오기
+root = tree.getroot() #root 노드 가져오기
+
+student = root.findall("student") #일치하는 모든 노드 가져오기
+#값을 가져오고 싶다면 -> student.find("name").text
+#일치하는 첫번재 노드의 속성 가져오기 -> student.findetext('score').attrib
+
+name = [x.findtext("name") for x in student]
+age = [x.findtext("age") for x in student]
+score = [x.find("score").attrib for x in student]
+
+print(name)
+print(age)
+print(score)
+
+
+#---PDF 파일---
  #pdf파일 불러와서 text파일로 읽어들이기
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.converter import TextConverter
