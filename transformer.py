@@ -68,5 +68,11 @@ class data:
 
 
             
-    #def to_pdf():
-        
+    def to_pdf():
+        if name[-3:]=='csv':
+
+        elif name[-4:]=='json':
+
+        elif name[-3:]=='xml':
+
+        elif name[-3:]=='pdf':
