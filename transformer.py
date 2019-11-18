@@ -19,7 +19,15 @@ class audio:
 
         play(sound)
 
+class video:
+    #video 재생 함수
+     def load_video(name):
+         if name[-3:]=="avi":
+             video = videosegment.from_file(name, format="avi")
+         if name[-3:]=="wmv":
+             video = videosegment.from_file(name, format="wmv")
 
+        play(sound)
 
 
 
