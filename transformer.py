@@ -6,6 +6,8 @@ from xml.etree.ElementTree import Element, SubElement, ElementTree, parse
 from tabula import read_pdf #pip install tabula-py
 import PyPDF2 #pip install PyPDF2
 
+import os
+
 class data:
     def open_data(name,xml_node1,xml_node2):
         if name[-3:]=='csv':
@@ -68,11 +70,23 @@ class data:
 
 
             
-    def to_pdf():
+    def trans_data(name,form):
         if name[-3:]=='csv':
-
+            thisfile=name
+            base=os.path.splitext(thisfile)[0]
+            os.rename(thisfile,base+","+form)
+            
         elif name[-4:]=='json':
-
+            thisfile=name
+            base=os.path.splitext(thisfile)[0]
+            os.rename(thisfile,base+".pdf")
+            
         elif name[-3:]=='xml':
-
+            thisfile=name
+            base=os.path.splitext(thisfile)[0]
+            os.rename(thisfile,base+".pdf")
+            
         elif name[-3:]=='pdf':
+            thisfile=name
+            base=os.path.splitext(thisfile)[0]
+            os.rename(thisfile,base+".pdf")
