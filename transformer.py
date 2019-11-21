@@ -33,6 +33,9 @@ elif(ext == "mp4"):
 elif(ext == "wmv"):
     fourcc = cv2.VideoWriter_fourcc(*'WMV2')
     writer = cv2.VideoWriter(fileName+".wmv", fourcc, 24, (int(width), int(height)))
+elif(ext == "flv"):
+    fourcc = cv2.VideoWriter_fourcc(*'kmv')
+    writer = cv2.VideoWriter(fileName+".flv", fourcc, 24, (int(width), int(height)))    
 else:
     print("FILE EXT ERROR")
 while cap.isOpened():
