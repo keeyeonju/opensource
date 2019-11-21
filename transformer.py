@@ -70,23 +70,32 @@ class data:
 
 
             
-    def trans_data(name,form):
+    def trans(name,form):
         if name[-3:]=='csv':
             thisfile=name
             base=os.path.splitext(thisfile)[0]
-            os.rename(thisfile,base+","+form)
+            os.rename(thisfile,base+"."+form)
             
         elif name[-4:]=='json':
             thisfile=name
             base=os.path.splitext(thisfile)[0]
-            os.rename(thisfile,base+".pdf")
+            os.rename(thisfile,base+"."+form)
             
         elif name[-3:]=='xml':
-            thisfile=name
-            base=os.path.splitext(thisfile)[0]
-            os.rename(thisfile,base+".pdf")
+            #xml->csv
+            if form=='csv':
+                result=name.to_csv("test.csv")
+                return result
+            #xml->json
+            elif form=='json':
+                result=name.to_csv("test.json")
+                return result
+            else:                       
+                thisfile=name
+                base=os.path.splitext(thisfile)[0]
+                os.rename(thisfile,base+"."+form)
             
         elif name[-3:]=='pdf':
             thisfile=name
             base=os.path.splitext(thisfile)[0]
-            os.rename(thisfile,base+".pdf")
+            os.rename(thisfile,base+"."+form)
