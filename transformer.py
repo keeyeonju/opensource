@@ -133,8 +133,11 @@ class data:
             print(new_df) 
             new_df.to_csv(name, index=False)
 
-
-
+#topdf
+#import pdfkit
+#import os
+#config=pdfkit.configuration(wkhtmltopdf='C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe')
+#pdfkit.from_file('Mall_Customers.csv','Mall_Customers.pdf')
 
         
         
