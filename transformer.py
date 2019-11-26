@@ -44,7 +44,33 @@ class audio:
 #play(last_5_seconds)
 
 
+from PyPDF2 import PdfFileReader, PdfFileWriter
 
+def pdfSlice(file_name,first_page,last_page):
+
+    pdf=PdfFileReader(open(file_name,'rb'))
+
+    numberPages=pdf.getNumPages()
+    
+    if(last_page>numberPages):
+        print("페이지 범위를 초과했습니다.")
+        return 0
+
+    for page in range(first_page,last_page):
+
+        pdf_writer=PdfFileWriter()
+        pdf_writer.addPage(pdf.getPage(page))
+
+        output_filename='file_name_{}.pdf'.format(page+1)
+
+        with open (output_filename,'wb')as f:
+            pdf_writer.write(f)
+            
+    return pdf
+
+pdfSlice("frozen.pdf",1,3)
+
+        
 
 
 
