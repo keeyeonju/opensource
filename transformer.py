@@ -8,16 +8,23 @@ import PyPDF2 #pip install PyPDF2
 
 import os
 
+import pdfkit
+
+from PyPDF2 import PdfFileReader, PdfFileWriter
+
 class data:
     def open_data(name,xml_node1,xml_node2):
+        #csv
         if name[-3:]=='csv':
             csv_data=pd.read_csv(name)
             return csv_data
-        
+
+        #json
         elif name[-4:]=='json':
             json_data=pd.read_json(name,encoding="utf-8")
             return json_data
-            
+
+        #xml
         elif name[-3:]=='xml':
             tree = parse(name) #xml 파일 가져오기
             root = tree.getroot() #root 노드 가져오기
@@ -32,6 +39,7 @@ class data:
             xml_data=pd.DataFrame(rows,columns=[xml_node2])
             return xml_data
 
+        #pdf
         elif name[-3:]=='pdf':
             reader = PyPDF2.PdfFileReader(open(name, mode='rb')) 
             m = reader.getNumPages() 
@@ -70,7 +78,7 @@ class data:
             
 
 
-            
+    #상호변환 및 html->pdf    
     def trans(name,form):
         if name[-3:]=='csv':
             thisfile=name
@@ -86,6 +94,12 @@ class data:
             thisfile=name
             base=os.path.splitext(thisfile)[0]
             os.rename(thisfile,base+"."+form)
+            
+        #html->pdf
+        elif name[-4:]=='html' and form=='pdf':
+            thisfile=name
+            base=os.path.splitext(thisfile)[0]
+            pdfkit.from_file(thisfile,base+"."+form)
 
 
 
@@ -95,49 +109,30 @@ class data:
 
 
 
+    def pdfSlice(file_name,first_page,last_page):
 
-    def pdf_k(name,k):
+        pdf=PdfFileReader(open(file_name,'rb'))
 
-            reader = PyPDF2.PdfFileReader(open(name, mode='rb')) 
-            #m = reader.getNumPages() 
-            #print(reader) 
-            print(k) 
-            for i in range(k): 
-                n = i+1 
+        numberPages=pdf.getNumPages()
+    
+        if(last_page>numberPages):
+            print("페이지 범위를 초과했습니다.")
+            return 0
 
-                if n==1: 
-                    df = read_pdf(name, pandas_options={'header': None, 'error_bad_lines': False}, pages=n) 
-                    index = np.where(df[0].isnull())[0] 
-                    sect = df.iloc[index[0]:index[-1]] 
-                    s = [] 
-                    headers = [] 
-                    for col in sect: 
-                        colnames = sect[col].dropna().values.flatten() 
-                        s.insert(len(s), colnames)
-                        pic = [' '.join(s[col])] 
-                        for i in pic: 
-                               headers.append(i) 
-                    print(df) 
-                    df.drop(sect, inplace=True) 
-                    df.columns = headers 
-                    new_df = pd.DataFrame(columns=headers) 
-                    new_df = pd.concat([new_df, df], axis=0, ignore_index=True) 
+        for page in range(first_page,last_page):
 
-                else: 
-                    df_2 = read_pdf(name, pandas_options={'header': None, 'error_bad_lines': False, 'encoding': "ISO-8859-1"}, pages=n) 
-                    df_2.drop(sect, inplace=True) 
-                    df_2.columns = headers 
-                    new_df = pd.concat([new_df, df_2], axis=0, ignore_index=True) 
+            pdf_writer=PdfFileWriter()
+            pdf_writer.addPage(pdf.getPage(page))
+
+            output_filename='file_name_{}.pdf'.format(page+1)
+
+            with open (output_filename,'wb')as f:
+                pdf_writer.write(f)
             
-            new_df.columns = headers 
-            print(new_df) 
-            new_df.to_csv(name, index=False)
+        return pdf
 
-#topdf
-#import pdfkit
-#import os
-#config=pdfkit.configuration(wkhtmltopdf='C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe')
-#pdfkit.from_file('Mall_Customers.csv','Mall_Customers.pdf')
+
+
 
         
         
