@@ -78,23 +78,15 @@ class data:
             
 
 
-    #상호변환 및 html->pdf    
+    #변환함수   
     def trans(name,form):
-        if name[-3:]=='csv':
+        
+        #상호변환
+        if form!='pdf':
             thisfile=name
             base=os.path.splitext(thisfile)[0]
             os.rename(thisfile,base+"."+form)
-            
-        elif name[-4:]=='json':
-            thisfile=name
-            base=os.path.splitext(thisfile)[0]
-            os.rename(thisfile,base+"."+form)
-            
-        elif name[-3:]=='pdf':
-            thisfile=name
-            base=os.path.splitext(thisfile)[0]
-            os.rename(thisfile,base+"."+form)
-            
+        
         #html->pdf
         elif name[-4:]=='html' and form=='pdf':
             thisfile=name
@@ -102,8 +94,8 @@ class data:
             pdfkit.from_file(thisfile,base+"."+form)
 
 
-
-    def trans_xml(name,form,new_name):
+    #여러 형식의 데이터를 데이터프레임로 변환하여 사용한 후 원하는 형식의 데이터로 변환 
+    def trans_dataframe(name,form,new_name):
             result=name.to_csv(new_name+"."+form)
             return result
 
