@@ -5,9 +5,10 @@
 
 from pydub import AudioSegment
 from pydub.playback import play
+from PyPDF2 import PdfFileReader, PdfFileWriter
 
 
-##audio class##
+##Audio class##
 
 class audio:
     def load_audio(name="",start_sec=0,end_sec=0):
@@ -30,8 +31,7 @@ class audio:
             sound = AudioSegment.from_file(name, format="mp3")
             play(sound)
             return sound
-
-        
+    
         
     def save_audio(name,change_name):
         sound = AudioSegment.from_file(name, format=name[-3:])
@@ -44,38 +44,39 @@ class audio:
 #play(last_5_seconds)
 
 
-from PyPDF2 import PdfFileReader, PdfFileWriter
+##Pdf class##
 
+class pdf:
+    def pdfSlice(file_name,first_page=0,last_page=0):
 
-def pdfSlice(file_name,first_page=0,last_page=0):
+        pdf=PdfFileReader(open(file_name,'rb'))
 
-    pdf=PdfFileReader(open(file_name,'rb'))
+        numberPages=pdf.getNumPages()
+        if(last_page==0):
+            pdf_writer=PdfFileWriter()
+            pdf_writer.addPage(pdf.getPage(first_page-1))
 
-    numberPages=pdf.getNumPages()
-    if(last_page==0):
-        pdf_writer=PdfFileWriter()
-        pdf_writer.addPage(pdf.getPage(first_page-1))
+            output_filename='{}_{}.pdf'.format(file_name[:-4],first_page)
 
-        output_filename='{}_{}.pdf'.format(file_name[:-4],first_page)
+            with open (output_filename,'wb')as f:
+                pdf_writer.write(f)
 
-        with open (output_filename,'wb')as f:
-            pdf_writer.write(f)
+        if(last_page>numberPages):
+            print("페이지 범위를 초과했습니다.")
+            return 0
+
+        for page in range(first_page-1,last_page):
+
+            pdf_writer=PdfFileWriter()
+            pdf_writer.addPage(pdf.getPage(page))
+
+            output_filename='{}_{}.pdf'.format(file_name[:-4],page+1)
+
+            with open (output_filename,'wb')as f:
+                pdf_writer.write(f)
+
+        return pdf
+
+#pdf.pdfSlice("frozen.pdf",1,2) #여러페이지 저장(1페이지와 2페이지저장)
+#pdf.pdfSlice("frozen.pdf",3) #한페이지만 저장
         
-    if(last_page>numberPages):
-        print("페이지 범위를 초과했습니다.")
-        return 0
-
-    for page in range(first_page-1,last_page):
-
-        pdf_writer=PdfFileWriter()
-        pdf_writer.addPage(pdf.getPage(page))
-
-        output_filename='{}_{}.pdf'.format(file_name[:-4],page+1)
-
-        with open (output_filename,'wb')as f:
-            pdf_writer.write(f)
-            
-    return pdf
-
-#pdfSlice("frozen.pdf",1,5) #여러페이지 저장(1페이지와 2페이지저장)
-#pdfSlice("frozen.pdf",3) #한페이지만 저장
