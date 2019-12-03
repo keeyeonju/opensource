@@ -1,4 +1,4 @@
-## Project: Transformer
+# Project: Transformer
 
 The fundamental purpose of this project is creating a python library that enables to open various data file formats and even to transform
 the data file into different file formats.
@@ -7,7 +7,7 @@ the data file into different file formats.
 
 
 
-## Dependencies
+## Dependencies_Audio
 
 You can open and save WAV files with pure python. For opening and saving non-wav 
 files – like mp3 – you'll need [ffmpeg](http://www.ffmpeg.org/) or 
