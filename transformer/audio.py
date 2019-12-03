@@ -5,7 +5,6 @@
 
 from pydub import AudioSegment
 from pydub.playback import play
-from PyPDF2 import PdfFileReader, PdfFileWriter
 
 
 ##Audio class##
