@@ -80,3 +80,15 @@ Windows:
 1. Download and extract libav from [Windows binaries provided here](http://builds.libav.org/windows/).
 2. Add the libav `/bin` folder to your PATH envvar
 3. `pip install pydub`
+
+
+## Audio
+
+load_audio
+
+    song=audio.load_audio("iu.mp3",30,40)
+
+save_audio
+
+    pip install git+https://github.com/jiaaro/pydub.git@master
+
