@@ -82,7 +82,7 @@ Windows:
 3. `pip install pydub`
 
 
-## Audio
+## Quick Start _Audio
 
 load_audio
 
@@ -90,5 +90,5 @@ load_audio
 
 save_audio
 
-    pip install git+https://github.com/jiaaro/pydub.git@master
+    audio.save_audio("sample6.mp3","sample7.wav") 
 
