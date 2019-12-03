@@ -52,10 +52,16 @@ play(sound)
 ## Quick Start _Audio
 
 load_audio
-
+    
+    #전체 재생
+    song=audio.load_audio("iu.mp3")
+    #30초부터 전체 재생
+    song=audio.load_audio("iu.mp3",30)
+    #30초부터 40초까지 재생
     song=audio.load_audio("iu.mp3",30,40)
 
 save_audio
-
+    
+    #"sample.mp3"를 "sample7.wav"로 변환
     audio.save_audio("sample6.mp3","sample7.wav") 
 
