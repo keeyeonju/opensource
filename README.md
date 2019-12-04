@@ -84,6 +84,7 @@ trial.cropImage(x1, y1, x2, y2)
 trial=Image_save(address) >> Execute the Image_save class with the variable "address"
 #Save the image file in different format
 trial.save_ ("Title")>>insert the format you want to save the image file in after 'save_'
+```
 
 
 ## Quick Start _Audio
