@@ -54,7 +54,23 @@ from pydub.playback import play
 sound = AudioSegment.from_file("mysound.wav", format="wav")
 play(sound)
 ```
+## Dependencies_Video
 
+
+### Installation
+1.install code
+python -m pip install opencv-python
+
+check code
+import cv2
+print(cv2.__version__)
+
+result : 4.1.0
+and
+2.install code
+pip3 install moviepy
+
+Pip version 19.2.3 is used, but version 19.3.1 is required
 ## Quick Start _Image
 There are basically two parts in Image library: Image and Image_save. Image is for opening and editing an Image file and Image_save is for saving an image file in different format.
 
