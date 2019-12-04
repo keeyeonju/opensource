@@ -8,6 +8,7 @@ Image library enables you to simply open, edit and save image files in various f
 Before you start, there are few libraries that you have to install:
 
 -PIL (https://pypi.org/project/Pillow/)
+
 -matplotlib (https://pypi.org/project/matplotlib/)
 
 
