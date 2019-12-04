@@ -5,7 +5,7 @@ The fundamental purpose of this project is creating a python library that enable
 
 ## Dependencies_Image
 Image library enables you to simply open, edit and save image files in various formats. No matter what format you want to open or save in, you can just import the library and try it!
-Before you start, there are few libraries that you have to install:
+Before you start, there are few libraries that you have to install:\n
 -PIL (https://pypi.org/project/Pillow/)
 -matplotlib (https://pypi.org/project/matplotlib/)
 
