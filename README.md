@@ -16,14 +16,16 @@ You can open files in multiple formats with this single data library and convert
 It also has the ability to save the analyzed and used dataframes to a file of the desired format.
 
 Available format : 
-  csv, json, xml, pdf, html, txt
+  
+    csv, json, xml, pdf, html, txt
 
 installation before use : 
-   pip install tabula-py
    
-   pip install PyPDF2
+    pip install tabula-py
    
-   pip install pdfkit
+    pip install PyPDF2
+   
+    pip install pdfkit
 
 ## Dependencies_Audio
 
