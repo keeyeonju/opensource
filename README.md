@@ -11,6 +11,17 @@ Before you start, there are few libraries that you have to install:
 
 -matplotlib (https://pypi.org/project/matplotlib/)
 
+## Dependencies_Data
+You can open files in multiple formats with this single data library and convert them to the format of your choice.
+It also has the ability to save the analyzed and used dataframes to a file of the desired format.
+
+Available format : 
+  csv, json, xml, pdf, html, txt
+
+installation before use : 
+   pip install tabula-py
+   pip install PyPDF2
+   pip install pdfkit
 
 ## Dependencies_Audio
 
