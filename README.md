@@ -20,7 +20,9 @@ Available format :
 
 installation before use : 
    pip install tabula-py
+   
    pip install PyPDF2
+   
    pip install pdfkit
 
 ## Dependencies_Audio
