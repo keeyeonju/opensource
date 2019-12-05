@@ -117,7 +117,34 @@ trial=Image_save(address) >> Execute the Image_save class with the variable "add
 trial.save_ ("Title")>>insert the format you want to save the image file in after 'save_'
 ```
 
+## Quick Start _Data
+```python
+#모듈 불러오기
+from transformer import data
 
+#파일 open (except xml)
+data_file=data.open_data("mydata")
+#xml_file
+data_file=data.open_data("mydata","node1","node2")
+
+#trans 함수
+data.trans("mydata",'form')
+
+#trans_Dataframe 함수
+data.trans_dataframe(mydataframe,'form','file_name')
+
+# pdfSlice 함수
+data.pdfSlice("myfile.pdf",1,3)
+
+#write_txt 함수
+#create new txt file
+text="text that you want to save"
+data.write_txt('file_name',text,'w')  #'w' mode
+
+#Append text to an existing file
+text="text that you want to add"
+data.write_txt('file_name',text,'a') #'a' mode
+```
 ## Quick Start _Audio
 
 load_audio
