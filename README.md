@@ -70,7 +70,7 @@ sound = AudioSegment.from_file("mysound.wav", format="wav")
 play(sound)
 ```
 ## Dependencies_Video
- You can open files in multiple formats with this single data library and convert them to the format of your choice. It also has the ability to save the analyzed and used dataframes to a file of the desired format.
+ You can open files in multiple formats with this single video library and convert them to the format of your choice. It also has the ability to save the analyzed and used dataframes to a file of the desired format.
 
 Available format :
       ```avi, mp4, flv, bmp, ```
