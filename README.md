@@ -163,4 +163,20 @@ save_audio
 audio.save_audio("sample6.mp3","sample7.wav") 
 ```
 ## Quick Start _video
+load_video
+```python
+#영상 재생
+address='C:/Users/jinee/gitt/opensource/test.mp4'
+trial=video(address)
+trial.videoOpen()
+save_video
+#영상 캡쳐
+trial.videoCapture().
+#영 변환 저장 및 짜르기
+trial.videoCut("avi")
 
+save_youtube
+#유튜브 저장
+url=
+trial_2=Youtube(url)
+trial_2.download()
