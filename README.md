@@ -77,8 +77,8 @@ Available format :
 
 ### Installation
 #video
+1.install code
 ```
-install code
 python -m pip install opencv-python
 
 check code
@@ -86,8 +86,9 @@ import cv2
 print(cv2.__version__)
 
 result : 4.1.0
-and
+```
 2.install code
+```
 pip3 install moviepy
   
   pip3 install moviepy
