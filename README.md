@@ -8,9 +8,13 @@ Image library enables you to simply open, edit and save image files in various f
 Before you start, there are few libraries that you have to install:
 
 -PIL (https://pypi.org/project/Pillow/)
+ 
+    pip install PIL
 
 -matplotlib (https://pypi.org/project/matplotlib/)
-
+ 
+    pip install matplotlib
+   
 ## Dependencies_Data
 You can open files in multiple formats with this single data library and convert them to the format of your choice.
 It also has the ability to save the analyzed and used dataframes to a file of the desired format.
