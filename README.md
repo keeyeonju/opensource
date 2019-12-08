@@ -17,7 +17,7 @@ Before you start, there are few libraries that you have to install:
    
 ## Dependencies_Data
 You can open files in multiple formats with this single data library and convert them to the format of your choice.
-It also has the ability to save the analyzed and used dataframes to a file of the desired format.
+It also has the ability to save the analyzed and used dataframes to a file of the desired format. You can create a new txt file in Python, or add content to an existing txt file.
 
 Available format : 
   
@@ -30,6 +30,8 @@ installation before use :
     pip install PyPDF2
    
     pip install pdfkit
+    
+    xml.etree.ElementTree
 
 ## Dependencies_Audio
 
@@ -138,29 +140,36 @@ trial.save_ ("Title")>>insert the format you want to save the image file in afte
 
 ## Quick Start _Data
 ```python
-#모듈 불러오기
+#import module
 from transformer import data
 
-#파일 open (except xml)
+#file open (except xml)
 data_file=data.open_data("mydata")
+
 #xml_file
 data_file=data.open_data("mydata","node1","node2")
 
-#trans 함수
+#trans
 data.trans("mydata",'form')
 
-#trans_Dataframe 함수
+#trans_Dataframe
 data.trans_dataframe(mydataframe,'form','file_name')
 
-# pdfSlice 함수
+#pdfSlice
+
+# 1)page 1 to 3
 data.pdfSlice("myfile.pdf",1,3)
 
-#write_txt 함수
-#create new txt file
+# 2)only page 5
+data.pdfSlice("myfile.pdf",5)
+
+#write_txt
+
+# 1)create new txt file
 text="text that you want to save"
 data.write_txt('file_name',text,'w')  #'w' mode
 
-#Append text to an existing file
+# 2)Append text to an existing file
 text="text that you want to add"
 data.write_txt('file_name',text,'a') #'a' mode
 ```
@@ -191,12 +200,12 @@ trial.videoOpen()
 save_video
 #영상 캡쳐
 trial.videoCapture().
-#영상 변환 저장 및 짜르기
+#영상 변환 저장 및 자르기
 trial.videoCut("avi")
  ```
 save_video
 ```python
-#영상 변환 저장 및 짜르기
+#영상 변환 저장 및 자르기
 trial.videoCut("avi")
 #유튜브 저장
 url=
