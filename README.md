@@ -68,13 +68,7 @@ You can play audio if you have one of these installed (simpleaudio _strongly_ re
  - ffplay (usually bundled with ffmpeg, see the next section)
  - avplay (usually bundled with libav, see the next section)
  
-```python
-from pydub import AudioSegment
-from pydub.playback import play
 
-sound = AudioSegment.from_file("mysound.wav", format="wav")
-play(sound)
-```
 ## Dependencies_Video
  You can open files in multiple formats with this single video library and convert them to the format of your choice. It also has the ability to save the analyzed and used dataframes to a file of the desired format.
 
